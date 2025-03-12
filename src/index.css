@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@layer base {
+  /* html {
+    /* background-color: #1D4ED8; Tailwind's bg-blue-700 */
+  /* color: #ffffff; Tailwind's text-white */
+  /* } */
+}
+
+/* .card {
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  max-width: 250px;
+  display: inline-block;
+}
+.card .img {
+  height: 200px;
+  width: 200px;
+  max-width: 100%;
+  border-radius: 50%;
+  margin-bottom: 10px
+} */

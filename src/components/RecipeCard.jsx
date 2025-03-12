@@ -22,9 +22,7 @@ export default function RecipeCard({ recipe, bg, badge }) {
     return [arr[0], arr[1]];
   };
 
-  const healthLabels = sliceArr(recipe.diets).concat(
-    sliceArr(recipe.dishTypes)
-  );
+  const healthLabels = sliceArr(recipe.diets);
 
   return (
     <div

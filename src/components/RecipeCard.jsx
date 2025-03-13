@@ -42,7 +42,7 @@ export default function RecipeCard({ recipe, bg, badge }) {
           <Soup size={"16"} /> {recipe.servings} Servings
         </div>
         <div
-          className="absolute top-1 right-2 bg-slate-500 rounded-full p-1 cursor-pointer"
+          className="absolute top-1 right-2 bg-slate-200 rounded-full p-1 cursor-pointer"
           onClick={(e) => {
             e.preventDefault();
             handleFavoriteClick();

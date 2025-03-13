@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const APP_KEY = "ca391d97da2c486fb7f7ef34fc7832cb";
+const APP_KEY = import.meta.env.VITE_APP_KEY;
 
 const loadFavoritesFromLocalStorage = () => {
   try {

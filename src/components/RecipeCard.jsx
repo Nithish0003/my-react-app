@@ -7,7 +7,7 @@ import {
 
 export default function RecipeCard({ recipe, bg, badge }) {
   const dispatch = useDispatch();
-  const favorites = useSelector((state) => state.recipes.recipes);
+  const favorites = useSelector((state) => state.recipes.favorites);
   const isFavorite = favorites.some((fav) => fav.id === recipe.id);
 
   const handleFavoriteClick = () => {

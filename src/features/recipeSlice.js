@@ -1,6 +1,28 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const APP_KEY = import.meta.env.VITE_APP_KEY;
+const APP_KEY = "ca391d97da2c486fb7f7ef34fc7832cb";
+
+const loadFavoritesFromLocalStorage = () => {
+  try {
+    const serializedState = localStorage.getItem("favorites");
+    if (serializedState === null) {
+      return [];
+    }
+    return JSON.parse(serializedState);
+  } catch (e) {
+    console.warn("Could not load favorites from local storage", e);
+    return [];
+  }
+};
+
+const saveFavoritesToLocalStorage = (favorites) => {
+  try {
+    const serializedState = JSON.stringify(favorites);
+    localStorage.setItem("favorites", serializedState);
+  } catch (e) {
+    console.warn("Could not save favorites to local storage", e);
+  }
+};
 
 export const fetchRecipes = createAsyncThunk(
   "recipes/fetchRecipes",
@@ -26,20 +48,23 @@ const recipesSlice = createSlice({
   name: "recipes",
   initialState: {
     recipes: [],
+    favorites: loadFavoritesFromLocalStorage(),
     loading: false,
     error: null,
   },
   reducers: {
     addRecipeToFavorites: (state, action) => {
       const recipe = action.payload;
-      const isFavorite = state.recipes.some((r) => r.id === recipe.id);
+      const isFavorite = state.favorites.some((r) => r.id === recipe.id);
       if (!isFavorite) {
-        state.recipes.push(recipe);
+        state.favorites.push(recipe);
+        saveFavoritesToLocalStorage(state.favorites);
       }
     },
     removeRecipeFromFavorites: (state, action) => {
       const recipeId = action.payload;
-      state.recipes = state.recipes.filter((r) => r.id !== recipeId);
+      state.favorites = state.favorites.filter((r) => r.id !== recipeId);
+      saveFavoritesToLocalStorage(state.favorites);
     },
   },
   extraReducers: (builder) => {

@@ -4,7 +4,7 @@ import { getRandomColor } from "../lib/utils";
 import { useSelector } from "react-redux";
 
 export default function FavoritePage() {
-  const favorites = useSelector((state) => state.recipes.recipes);
+  const favorites = useSelector((state) => state.recipes.favorites);
 
   return (
     <div className="flex-1 p-10 min-h-screen">

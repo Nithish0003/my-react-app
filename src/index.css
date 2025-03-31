@@ -1,11 +1,11 @@
 @import "tailwindcss";
 @plugin "daisyui";
-@layer base {
-  /* html {
+/* @layer base { */
+/* html {
     /* background-color: #1D4ED8; Tailwind's bg-blue-700 */
-  /* color: #ffffff; Tailwind's text-white */
-  /* } */
-}
+/* color: #ffffff; Tailwind's text-white */
+/* } */
+/* } */
 
 /* .card {
   border: 1px solid hsl(0, 0%, 80%);
